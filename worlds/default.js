@@ -21,7 +21,7 @@ export function init(Constants) {
 
     Constants.UserBehaviorDirectory = "behaviors/default";
     Constants.UserBehaviorModules = [
-        "lights.js", "move.js",
+        "lights.js", "move.js", "apicall.js", "heartbeat.js", "event.js"
     ];
 
     Constants.DefaultCards = [
@@ -30,6 +30,7 @@ export function init(Constants) {
                 name:"world model",
                 layers: ["walk"],
                 type: "3d",
+                behaviorModules: ["Api", "Heartbeat", "Event"],
                 singleSided: true,
                 shadow: true,
                 translation:[0, -1.7, 0],
