@@ -12,6 +12,7 @@ class MovePawn  extends PawnBehavior{
         let z = this.translation[2] - 5 ; 
 
         this.set({translation: [x, y, z]});
+
     }
 
 

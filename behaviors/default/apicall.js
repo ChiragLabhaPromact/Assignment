@@ -1,4 +1,6 @@
-class Apicall {
+import { PawnBehavior } from "../PrototypeBehavior";
+
+class Apicall extends PawnBehavior {
 
     setup() {
         this.callMyApi();
@@ -45,6 +47,37 @@ class Apicall {
             .then(response => response.json())
             .then(response => console.log(response))
             .catch(err => console.error(err));
+
+        const op = {
+            method: 'POST',
+            headers: {
+                accept: 'application/json',
+                'X-DE-SCOPE': '1689141944790016.DE_1689141944790019',
+                authorization: `Bearer ${access_token}`
+            }
+        };
+
+
+        fetch('https://api.beamable.com/basic/session/heartbeat', op)
+            .then(response => response.json())
+            .then(response => {
+                let avatar = this.actor.service("PlayerManager").players.get(this.viewId)._name;
+                const opt = {
+                    method: 'POST',
+                    headers: {
+                        accept: 'application/json',
+                        'content-type': 'application/json',
+                        'X-DE-SCOPE': '1689141944790016.DE_1689141944790019',
+                        authorization: `Bearer ${access_token}`
+                    },
+                    body: JSON.stringify({ set: [{ k: 'alias', v: `${avatar}` }] })
+                };
+
+                fetch(`https://api.beamable.com/object/stats/client.public.player.${response.gt}/client/stringlist`, opt)
+                    .then(res => res.json())
+                    .then(res => console.log(res))
+                    .catch(err => console.error(err));
+            })
     }
 }
 

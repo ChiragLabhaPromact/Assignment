@@ -7,17 +7,35 @@
   <title>Microverse</title>
   <link id="microverse-css" rel="stylesheet" href="./assets/css/microverse.css" />
   <script defer src="lib/index-46463b78.js"></script>
-  <script src="behaviors/default/event.js"></script>
 </head>
 
 <style>
   /* style.css */
   #button {
-    margin: 65px;
+    position: absolute;
+    top: 20%;
+    left: 10px;
     padding: 10px;
     border: 1px solid #ddd;
     position: absolute;
     z-index: 1;
+  }
+
+  #adminLogin {
+    top: 30%;
+    left: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .table {
+    display: none;
+    right: 20px;
+    top: 2%;
+    z-index: 1;
+    position: absolute;
   }
 
   .no-select {
@@ -29,7 +47,8 @@
     color: black !important;
   }
 
-  .overlay {
+  .overlay,
+  .login-overlay {
     display: none;
     position: fixed;
     top: 0;
@@ -40,7 +59,8 @@
   }
 
   /* Styling for the popup box */
-  .popup {
+  .popup,
+  .login-popup {
     display: none;
     position: fixed;
     z-index: 1;
@@ -53,12 +73,53 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
 
+  .login-form {
+    text-align: center;
+  }
+
+  .login-form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .login-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+  }
+
+  .login-form button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
   /* Styling for the close button */
   .popup-close {
     cursor: pointer;
     position: absolute;
     top: 10px;
     right: 10px;
+  }
+
+  .table {
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  .table th,
+  .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    font-size: 15px;
+  }
+
+  .table th {
+    background-color: #f2f2f2;
   }
 </style>
 
@@ -69,6 +130,36 @@
     <span class="popup-close" id="popup-close">&#10006;</span>
     <p id="text"></p>
   </div>
+
+  <button id="adminLogin">Admin Login</button>
+  <div class="login-overlay" id="login-overlay"></div>
+  <div class="login-popup" id="login-popup">
+    <span class="popup-close" id="popup-close-login">&#10006;</span>
+    <div class="login-form">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username">
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password">
+
+      <button id="loginbutton">Login</button>
+    </div>
+  </div>
+
+  <table class="table" id="table">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Game Tag</th>
+        <th>Event Id</th>
+        <th>Register Date</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+
 </body>
 
 </html>
