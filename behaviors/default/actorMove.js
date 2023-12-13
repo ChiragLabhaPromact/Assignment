@@ -10,12 +10,12 @@ class actorMovePawn extends PawnBehavior {
         this.testIntract();
         this.angle = 0
         this.spinSpeed = 0.2;
+        console.log(this.actor);
     }
 
     testIntract() {
         if (!this.isBallMoving && Math.abs(this.getMyAvatar().translation[2] - this.actor.translation[2]) < 0.9) {
             this.isBallMoving = true;
-            console.log("Helbj");
             this.moveball(0);
         }
         this.future(100).testIntract();
@@ -39,8 +39,6 @@ class actorMovePawn extends PawnBehavior {
             rotation: Microverse.q_euler(this.angle, 0, 0),
             translation: [this.x, this.y, this.z],
         });
-
-        console.log(this.translation);
     }
 }
 

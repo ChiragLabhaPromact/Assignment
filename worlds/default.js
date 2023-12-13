@@ -3,27 +3,13 @@
 // info@croquet.io
 
 export function init(Constants) {
+    
+    Constants.AvatarNames = ["newwhite", "whiterabbit"]
+
     Constants.UserBehaviorDirectory = "behaviors/default";
     Constants.UserBehaviorModules = [
         "lights.js", "move.js", "apicall.js", "heartbeat.js", "event.js", "admin.js", "actorMove.js"
     ];
-    Constants.AvatarNames = [
-
-    /* Alternatively, you can specify a card spec for an avatar,
-       instead of a string for the partical file name, to create your own avatar.
-       You can add behaviorModules here. Also, if the system detects a behavior module
-       named AvatarEventHandler, that is automatically installed to the avatar.
-       */
-        {
-            type: "3d",
-            modelType: "glb",
-            name: "rabbit",
-            dataLocation: "./assets/avatars/newwhite.zip",
-            dataRotation: [0, Math.PI, 0],
-            dataScale: [0.3, 0.3, 0.3],
-            // behaviorModules: ["ActorMove"]
-        }
-    ]
 
 
     Constants.DefaultCards = [
@@ -60,7 +46,7 @@ export function init(Constants) {
                 scale: [0.16907287635213353, 0.16907287635213353, 0.16907287635213353],    
                 rotation: [0, 0.0015984296693304875, 0, 0.9999987225104802],    
                 layers: ["pointer"],    
-                behaviorModules: ["ActorMove"],
+                behaviorModules: ["Move"],
                 name: "Football.glb",   
                 dataLocation: "3FX27TcBjr2-ZvZjLxcbwCZn0alV3SOS4Z5Beipgxa2QLjIyNjV8aWkgLyojNWgzNWglNCk3MyMyaC8paTNpPBMyMRYJPAAzCRV3DS8hCxwvc3V_PgACAX52dGkvKWglNCk3MyMyaCsvJTQpMCM0NSNoKiklJyoiIzAiIyAnMyoyaTIxASgUCzYyDzYeEi0NNiMyMwxrcCUpMQIDMAUhdBYqKDUsH3MODQINdX5pIicyJ2kgEyd1AgExABIFMAsnFH4xBQk8MAQzESosNSMnHBMJcBcxchcvKCQsM3IP",    
                 dataScale: [2.132073633812013, 2.132073633812013, 2.132073633812013],    
